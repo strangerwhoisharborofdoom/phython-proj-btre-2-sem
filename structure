@@ -1,0 +1,16 @@
+university-data-engine/
+│
+├── main.py
+├── README.md
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+│
+├── docs/
+│   └── project_report.md
+│
+├── screenshots/
+│   └── output.png
+│
+└── sample_output/
+    └── terminal_output.txt
