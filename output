@@ -1,0 +1,23 @@
+Student 1001 enrolled in AI301
+Student 1001 is already enrolled in CS101
+
+Common Courses Between 1001 and 1002:
+{'CS101'}
+
+Average Score of Student 1001:
+88.5
+
+===== UNIVERSITY REGISTRY REPORT =====
+
+Student ID : 1001
+Name       : Pavan
+Courses    : {'CS101', 'AI301', 'ROBO201'}
+----------------------------------------
+Student ID : 1002
+Name       : Rahul
+Courses    : {'CS101', 'MATH202'}
+----------------------------------------
+Student ID : 1003
+Name       : Sneha
+Courses    : {'ECE301', 'MATH202'}
+----------------------------------------
