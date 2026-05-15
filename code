@@ -1,0 +1,83 @@
+student_registry = {
+    1001: ("Pavan", "Robotics", 2029),
+    1002: ("Rahul", "Computer Science", 2028),
+    1003: ("Sneha", "Electronics", 2027)
+}
+
+course_enrollments = {
+    1001: {"CS101", "ROBO201"},
+    1002: {"CS101", "MATH202"},
+    1003: {"ECE301", "MATH202"}
+}
+
+def enroll_student(sid, course_code):
+
+    if sid not in course_enrollments:
+        course_enrollments[sid] = set()
+
+    before = len(course_enrollments[sid])
+
+    course_enrollments[sid].add(course_code)
+
+    after = len(course_enrollments[sid])
+
+    if before == after:
+        print(f"Student {sid} is already enrolled in {course_code}")
+    else:
+        print(f"Student {sid} enrolled in {course_code}")
+
+grade_books = {
+    1001: [("CS101", 85), ("ROBO201", 92)],
+    1002: [("CS101", 78), ("MATH202", 88)],
+    1003: [("ECE301", 90), ("MATH202", 81)]
+}
+
+def common_courses(student1, student2):
+
+    courses1 = course_enrollments.get(student1, set())
+    courses2 = course_enrollments.get(student2, set())
+
+    common = courses1.intersection(courses2)
+
+    return common
+
+def calculate_gpa(sid):
+
+    grades = grade_books.get(sid, [])
+
+    if not grades:
+        return 0
+
+    total = 0
+
+    for course, grade in grades:
+        total += grade
+
+    average = total / len(grades)
+
+    return average
+
+def registry_auditor():
+
+    print("\n===== UNIVERSITY REGISTRY REPORT =====\n")
+
+    for sid, info in student_registry.items():
+
+        name = info[0]
+        courses = course_enrollments.get(sid, set())
+
+        print(f"Student ID : {sid}")
+        print(f"Name       : {name}")
+        print(f"Courses    : {courses}")
+        print("-" * 40)
+
+enroll_student(1001, "AI301")
+enroll_student(1001, "CS101")
+
+print("\nCommon Courses Between 1001 and 1002:")
+print(common_courses(1001, 1002))
+
+print("\nAverage Score of Student 1001:")
+print(calculate_gpa(1001))
+
+registry_auditor()
